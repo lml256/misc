@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>Welcome to SDUST online judge</title>
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<!--顶部导航-->
+<!--导航   标签页-->
+<!--ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="index.html">Home</a></li>
+    <li role="presentation"><a href="problem.html">Problem</a></li>
+    <li role="presentation"><a href="standing.html">Standing</a></li>
+  </ul-->
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed active" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">SDUSTOJ</a>
+			</div>
+
+
+			<!--右边-->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="webbocard.html">Web Bocard</a>
+					</li>
+					<li>
+						<a href="problem.html">Problem
+							<!--span class="sr-only">(current)</span-->
+						</a>
+					</li>
+					<li>
+						<a href="status.html">Status</a>
+					</li>
+					<li class="active">
+						<a href="ranklist.html">Ranklist</a>
+					</li>
+					<li>
+						<a href="contest/contest.html">Context</a>
+					</li>
+                    <li>
+                        <a href="FAQ.html">F.A.Qs</a>
+                    </li>
+
+				</ul>
+
+				<!--登陆-->
+				<form class="navbar-form navbar-right">
+					<!-- 按钮触发模态框 -->
+
+					<button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
+						Login
+					</button>
+					<!-- 模态框（Modal） -->
+					<button type="button" class="btn btn-default">Register</button>
+				</form>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	<!-- 模态框（Modal） 应放在外面-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						登陆
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="table table-striped">
+						<from>
+							<input class="form-control" type="text" placeholder="Username">
+						</from>
+						<h3></h3>
+						<from>
+							<input class="form-control" type="password" placeholder="Password">
+						</from>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<samll>
+						<a>忘记密码?</a>
+					</samll>
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary">
+						登陆
+					</button>
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+</body>
+
+<!--*****************************************************************************-->
+
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <table class="table table-striped">                
+                <tr>
+                    <td width=10%></td>
+                    <td>
+                        <from>
+                            <input class="form-control search-query" type="text" placeholder="起始区间">
+                        </from>
+                    </td>
+                    <td>___</td>
+                    <td>
+                        <from>
+                                <input class="form-control search-query" type="text" placeholder="结束区间">
+                        </from>
+                    </td>
+                    <td width=5%>
+                    <td>
+                            <from>
+                                    <input class="form-control search-query" type="text" placeholder="User">
+                            </from>
+                    </td>
+                    <td>
+                            <from>
+                                    <input class="form-control search-query" type="text" placeholder="Nick Name">
+                            </from>
+                    </td>
+                    <td>
+                        <button type="submit" class="form-control">Search</button>
+                    </td>
+
+                    <td>
+                            <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              Year
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <li><a href="#">Month</a></li>
+                              <li><a href="#">Week</a></li>
+                              <li><a href="#">Day</a></li>
+                            </ul>
+                          </div>
+                    </td>
+                    
+                </tr>
+            </table>
+            <table class="table table-striped table-bordered table-hover"h>
+                <tr style="background-color:cornflowerblue">
+                    <td align=center>
+                        <b>No.</b>
+                        <td align=center>
+                            <b>User</b>
+                            <td align=center>
+                                <b>Nick Name</b>
+                                <td align=center>
+                                    <b>AC</b>
+                                    <td align=center>
+                                        <b>Submit</b>
+                                        <td align=center>
+                                            <b>Ratio</b>
+                </tr>
+                <tr class='oddrow'>
+                    <td align=center>1
+                        <td align=center>
+                            <a href='#'>201501060924</a>
+                            <td align=center>杨康
+                                <td align=center>
+                                    <a href='#'>541</a>
+                                    <td align=center>
+                                        <a href='#'>1219</a>
+                                        <td align=center>44.381%</tr>
+                <tr class='evenrow'>
+                    <td align=center>2
+                        <td align=center>
+                            <a href='#'>201601060537</a>
+                            <td align=center>郑源
+                                <td align=center>
+                                    <a href='#'>472</a>
+                                    <td align=center>
+                                        <a href='#'>1273</a>
+                                        <td align=center>37.078%</tr>
+                <tr class='oddrow'>
+                    <td align=center>3
+                        <td align=center>
+                            <a href='#'>201401061124</a>
+                            <td align=center>你猜
+                                <td align=center>
+                                    <a href='#'>460</a>
+                                    <td align=center>
+                                        <a href='#'>797</a>
+                                        <td align=center>57.716%</tr>
+                <tr class='evenrow'>
+                    <td align=center>4
+                        <td align=center>
+                            <a href='#'>201501060818</a>
+                            <td align=center>田腾
+                                <td align=center>
+                                    <a href='#'>428</a>
+                                    <td align=center>
+                                        <a href='#'>911</a>
+                                        <td align=center>46.981%</tr>
+                <tr class='oddrow'>
+                    <td align=center>5
+                        <td align=center>
+                            <a href='#'>201501061022</a>
+                            <td align=center>秦培发
+                                <td align=center>
+                                    <a href='#'>415</a>
+                                    <td align=center>
+                                        <a href='#'>890</a>
+                                        <td align=center>46.629%</tr>
+                <tr class='evenrow'>
+                    <td align=center>6
+                        <td align=center>
+                            <a href='#'>201501060830</a>
+                            <td align=center>杨旭
+                                <td align=center>
+                                    <a href='#'>409</a>
+                                    <td align=center>
+                                        <a href='#'>855</a>
+                                        <td align=center>47.836%</tr>
+                <tr class='oddrow'>
+                    <td align=center>7
+                        <td align=center>
+                            <a href='#'>201501020823</a>
+                            <td align=center>许宝钊
+                                <td align=center>
+                                    <a href='#'>404</a>
+                                    <td align=center>
+                                        <a href='#'>1019</a>
+                                        <td align=center>39.647%</tr>
+                <tr class='evenrow'>
+                    <td align=center>8
+                        <td align=center>
+                            <a href='#'>201501061019</a>
+                            <td align=center>马中行
+                                <td align=center>
+                                    <a href='#'>394</a>
+                                    <td align=center>
+                                        <a href='#'>895</a>
+                                        <td align=center>44.022%</tr>
+                <tr class='oddrow'>
+                    <td align=center>9
+                        <td align=center>
+                            <a href='#'>gaogao</a>
+                            <td align=center>gaogao
+                                <td align=center>
+                                    <a href='#'>388</a>
+                                    <td align=center>
+                                        <a href='#'>817</a>
+                                        <td align=center>47.491%</tr>
+                <tr class='evenrow'>
+                    <td align=center>10
+                        <td align=center>
+                            <a href='#'>201501070335</a>
+                            <td align=center>张金杰
+                                <td align=center>
+                                    <a href='#'>387</a>
+                                    <td align=center>
+                                        <a href='#'>1185</a>
+                                        <td align=center>32.658%</tr>
+                <tr class='oddrow'>
+                    <td align=center>11
+                        <td align=center>
+                            <a href='#'>wzh</a>
+                            <td align=center>吴振寰
+                                <td align=center>
+                                    <a href='#'>384</a>
+                                    <td align=center>
+                                        <a href='#'>893</a>
+                                        <td align=center>43.001%</tr>
+                <tr class='evenrow'>
+                    <td align=center>12
+                        <td align=center>
+                            <a href='#'>201501060109</a>
+                            <td align=center>郭孝通
+                                <td align=center>
+                                    <a href='#'>381</a>
+                                    <td align=center>
+                                        <a href='#'>795</a>
+                                        <td align=center>47.925%</tr>
+                <tr class='oddrow'>
+                    <td align=center>13
+                        <td align=center>
+                            <a href='#'>201501030705</a>
+                            <td align=center>侯胜哲
+                                <td align=center>
+                                    <a href='#'>378</a>
+                                    <td align=center>
+                                        <a href='#'>903</a>
+                                        <td align=center>41.860%</tr>
+                <tr class='evenrow'>
+                    <td align=center>14
+                        <td align=center>
+                            <a href='#'>201501060829</a>
+                            <td align=center>杨磊
+                                <td align=center>
+                                    <a href='#'>377</a>
+                                    <td align=center>
+                                        <a href='#'>903</a>
+                                        <td align=center>41.750%</tr>
+                <tr class='oddrow'>
+                    <td align=center>15
+                        <td align=center>
+                            <a href='#'>201501061106</a>
+                            <td align=center>姜悦怡
+                                <td align=center>
+                                    <a href='#'>376</a>
+                                    <td align=center>
+                                        <a href='#'>724</a>
+                                        <td align=center>51.934%</tr>
+                <tr class='evenrow'>
+                    <td align=center>16
+                        <td align=center>
+                            <a href='#'>201601060526</a>
+                            <td align=center>肖沂锟
+                                <td align=center>
+                                    <a href='#'>375</a>
+                                    <td align=center>
+                                        <a href='#'>884</a>
+                                        <td align=center>42.421%</tr>
+                <tr class='oddrow'>
+                    <td align=center>17
+                        <td align=center>
+                            <a href='#'>201501060904</a>
+                            <td align=center>樊程
+                                <td align=center>
+                                    <a href='#'>375</a>
+                                    <td align=center>
+                                        <a href='#'>1015</a>
+                                        <td align=center>36.946%</tr>
+                <tr class='evenrow'>
+                    <td align=center>18
+                        <td align=center>
+                            <a href='#'>201601060606</a>
+                            <td align=center>董路宽
+                                <td align=center>
+                                    <a href='#'>374</a>
+                                    <td align=center>
+                                        <a href='#'>828</a>
+                                        <td align=center>45.169%</tr>
+                <tr class='oddrow'>
+                    <td align=center>19
+                        <td align=center>
+                            <a href='#'>201501120104</a>
+                            <td align=center>亢羽童
+                                <td align=center>
+                                    <a href='#'>374</a>
+                                    <td align=center>
+                                        <a href='#'>884</a>
+                                        <td align=center>42.308%</tr>
+                <tr class='evenrow'>
+                    <td align=center>20
+                        <td align=center>
+                            <a href='#'>201501011224</a>
+                            <td align=center>于振
+                                <td align=center>
+                                    <a href='#'>371</a>
+                                    <td align=center>
+                                        <a href='#'>975</a>
+                                        <td align=center>38.051%</tr>
+                <tr class='oddrow'>
+                    <td align=center>21
+                        <td align=center>
+                            <a href='#'>201601060525</a>
+                            <td align=center>夏天宇
+                                <td align=center>
+                                    <a href='#'>370</a>
+                                    <td align=center>
+                                        <a href='#'>639</a>
+                                        <td align=center>57.903%</tr>
+                <tr class='evenrow'>
+                    <td align=center>22
+                        <td align=center>
+                            <a href='#'>201601060527</a>
+                            <td align=center>徐强
+                                <td align=center>
+                                    <a href='#'>370</a>
+                                    <td align=center>
+                                        <a href='#'>730</a>
+                                        <td align=center>50.685%</tr>
+                <tr class='oddrow'>
+                    <td align=center>23
+                        <td align=center>
+                            <a href='#'>201501030523</a>
+                            <td align=center>王文晖
+                                <td align=center>
+                                    <a href='#'>370</a>
+                                    <td align=center>
+                                        <a href='#'>750</a>
+                                        <td align=center>49.333%</tr>
+                <tr class='evenrow'>
+                    <td align=center>24
+                        <td align=center>
+                            <a href='#'>201601060743</a>
+                            <td align=center>尹贯宇
+                                <td align=center>
+                                    <a href='#'>370</a>
+                                    <td align=center>
+                                        <a href='#'>1068</a>
+                                        <td align=center>34.644%</tr>
+                <tr class='oddrow'>
+                    <td align=center>25
+                        <td align=center>
+                            <a href='#'>201601060523</a>
+                            <td align=center>王万祥
+                                <td align=center>
+                                    <a href='#'>369</a>
+                                    <td align=center>
+                                        <a href='#'>743</a>
+                                        <td align=center>49.664%</tr>
+                <tr class='evenrow'>
+                    <td align=center>26
+                        <td align=center>
+                            <a href='#'>201501061029</a>
+                            <td align=center>提宁宁
+                                <td align=center>
+                                    <a href='#'>369</a>
+                                    <td align=center>
+                                        <a href='#'>985</a>
+                                        <td align=center>37.462%</tr>
+                <tr class='oddrow'>
+                    <td align=center>27
+                        <td align=center>
+                            <a href='#'>201401061038</a>
+                            <td align=center>张正锟
+                                <td align=center>
+                                    <a href='#'>368</a>
+                                    <td align=center>
+                                        <a href='#'>990</a>
+                                        <td align=center>37.172%</tr>
+                <tr class='evenrow'>
+                    <td align=center>28
+                        <td align=center>
+                            <a href='#'>201501061228</a>
+                            <td align=center>王辛
+                                <td align=center>
+                                    <a href='#'>367</a>
+                                    <td align=center>
+                                        <a href='#'>755</a>
+                                        <td align=center>48.609%</tr>
+                <tr class='oddrow'>
+                    <td align=center>29
+                        <td align=center>
+                            <a href='#'>201501110113</a>
+                            <td align=center>李琳
+                                <td align=center>
+                                    <a href='#'>367</a>
+                                    <td align=center>
+                                        <a href='#'>1064</a>
+                                        <td align=center>34.492%</tr>
+                <tr class='evenrow'>
+                    <td align=center>30
+                        <td align=center>
+                            <a href='#'>201501060234</a>
+                            <td align=center>张恒
+                                <td align=center>
+                                    <a href='#'>364</a>
+                                    <td align=center>
+                                        <a href='#'>867</a>
+                                        <td align=center>41.984%</tr>
+                <tr class='oddrow'>
+                    <td align=center>31
+                        <td align=center>
+                            <a href='#'>201601060719</a>
+                            <td align=center>刘存壮
+                                <td align=center>
+                                    <a href='#'>364</a>
+                                    <td align=center>
+                                        <a href='#'>1180</a>
+                                        <td align=center>30.847%</tr>
+                <tr class='evenrow'>
+                    <td align=center>32
+                        <td align=center>
+                            <a href='#'>201601060524</a>
+                            <td align=center>王子双
+                                <td align=center>
+                                    <a href='#'>361</a>
+                                    <td align=center>
+                                        <a href='#'>733</a>
+                                        <td align=center>49.250%</tr>
+                <tr class='oddrow'>
+                    <td align=center>33
+                        <td align=center>
+                            <a href='#'>201601060334</a>
+                            <td align=center>张绍聪
+                                <td align=center>
+                                    <a href='#'>360</a>
+                                    <td align=center>
+                                        <a href='#'>657</a>
+                                        <td align=center>54.795%</tr>
+                <tr class='evenrow'>
+                    <td align=center>34
+                        <td align=center>
+                            <a href='#'>201501060314</a>
+                            <td align=center>李文啸
+                                <td align=center>
+                                    <a href='#'>360</a>
+                                    <td align=center>
+                                        <a href='#'>1018</a>
+                                        <td align=center>35.363%</tr>
+                <tr class='oddrow'>
+                    <td align=center>35
+                        <td align=center>
+                            <a href='#'>cuihq</a>
+                            <td align=center>崔焕庆
+                                <td align=center>
+                                    <a href='#'>358</a>
+                                    <td align=center>
+                                        <a href='#'>769</a>
+                                        <td align=center>46.554%</tr>
+                <tr class='evenrow'>
+                    <td align=center>36
+                        <td align=center>
+                            <a href='#'>201501060822</a>
+                            <td align=center>王浩
+                                <td align=center>
+                                    <a href='#'>358</a>
+                                    <td align=center>
+                                        <a href='#'>928</a>
+                                        <td align=center>38.578%</tr>
+                <tr class='oddrow'>
+                    <td align=center>37
+                        <td align=center>
+                            <a href='#'>201601060413</a>
+                            <td align=center>鹿鑫
+                                <td align=center>
+                                    <a href='#'>357</a>
+                                    <td align=center>
+                                        <a href='#'>582</a>
+                                        <td align=center>61.340%</tr>
+                <tr class='evenrow'>
+                    <td align=center>38
+                        <td align=center>
+                            <a href='#'>201501100321</a>
+                            <td align=center>史天成
+                                <td align=center>
+                                    <a href='#'>356</a>
+                                    <td align=center>
+                                        <a href='#'>616</a>
+                                        <td align=center>57.792%</tr>
+                <tr class='oddrow'>
+                    <td align=center>39
+                        <td align=center>
+                            <a href='#'>201601060329</a>
+                            <td align=center>杨肖铭
+                                <td align=center>
+                                    <a href='#'>356</a>
+                                    <td align=center>
+                                        <a href='#'>788</a>
+                                        <td align=center>45.178%</tr>
+                <tr class='evenrow'>
+                    <td align=center>40
+                        <td align=center>
+                            <a href='#'>201601060625</a>
+                            <td align=center>王矶法
+                                <td align=center>
+                                    <a href='#'>356</a>
+                                    <td align=center>
+                                        <a href='#'>798</a>
+                                        <td align=center>44.612%</tr>
+                <tr class='oddrow'>
+                    <td align=center>41
+                        <td align=center>
+                            <a href='#'>201501110716</a>
+                            <td align=center>盛怡璇
+                                <td align=center>
+                                    <a href='#'>356</a>
+                                    <td align=center>
+                                        <a href='#'>821</a>
+                                        <td align=center>43.362%</tr>
+                <tr class='evenrow'>
+                    <td align=center>42
+                        <td align=center>
+                            <a href='#'>201501021004</a>
+                            <td align=center>陈龙
+                                <td align=center>
+                                    <a href='#'>356</a>
+                                    <td align=center>
+                                        <a href='#'>908</a>
+                                        <td align=center>39.207%</tr>
+                <tr class='oddrow'>
+                    <td align=center>43
+                        <td align=center>
+                            <a href='#'>201501061025</a>
+                            <td align=center>司甲凯
+                                <td align=center>
+                                    <a href='#'>356</a>
+                                    <td align=center>
+                                        <a href='#'>929</a>
+                                        <td align=center>38.321%</tr>
+                <tr class='evenrow'>
+                    <td align=center>44
+                        <td align=center>
+                            <a href='#'>201601060411</a>
+                            <td align=center>李林罡
+                                <td align=center>
+                                    <a href='#'>354</a>
+                                    <td align=center>
+                                        <a href='#'>741</a>
+                                        <td align=center>47.773%</tr>
+                <tr class='oddrow'>
+                    <td align=center>45
+                        <td align=center>
+                            <a href='#'>201601060928</a>
+                            <td align=center>魏仲华
+                                <td align=center>
+                                    <a href='#'>354</a>
+                                    <td align=center>
+                                        <a href='#'>834</a>
+                                        <td align=center>42.446%</tr>
+                <tr class='evenrow'>
+                    <td align=center>46
+                        <td align=center>
+                            <a href='#'>201501020910</a>
+                            <td align=center>蒋帅
+                                <td align=center>
+                                    <a href='#'>354</a>
+                                    <td align=center>
+                                        <a href='#'>911</a>
+                                        <td align=center>38.858%</tr>
+                <tr class='oddrow'>
+                    <td align=center>47
+                        <td align=center>
+                            <a href='#'>201501120101</a>
+                            <td align=center>程晓华
+                                <td align=center>
+                                    <a href='#'>354</a>
+                                    <td align=center>
+                                        <a href='#'>1116</a>
+                                        <td align=center>31.720%</tr>
+                <tr class='evenrow'>
+                    <td align=center>48
+                        <td align=center>
+                            <a href='#'>201601060410</a>
+                            <td align=center>黄谦
+                                <td align=center>
+                                    <a href='#'>353</a>
+                                    <td align=center>
+                                        <a href='#'>646</a>
+                                        <td align=center>54.644%</tr>
+                <tr class='oddrow'>
+                    <td align=center>49
+                        <td align=center>
+                            <a href='#'>201501060827</a>
+                            <td align=center>严文杰
+                                <td align=center>
+                                    <a href='#'>353</a>
+                                    <td align=center>
+                                        <a href='#'>809</a>
+                                        <td align=center>43.634%</tr>
+                <tr class='evenrow'>
+                    <td align=center>50
+                        <td align=center>
+                            <a href='#'>201501060920</a>
+                            <td align=center>王锦浩
+                                <td align=center>
+                                    <a href='#'>353</a>
+                                    <td align=center>
+                                        <a href='#'>820</a>
+                                        <td align=center>43.049%</tr>
+            </table>    
+
+            <div align=center>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="ranklist.html" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ranklist.html">1</a>
+                        </li>
+                        <li>
+                            <a href="ranklist.html">2</a>
+                        </li>
+                        <li>
+                            <a href="ranklist.html">3</a>
+                        </li>
+                        <li>
+                            <a href="ranklist.html">4</a>
+                        </li>
+                        <li>
+                            <a href="ranklist.html">5</a>
+                        </li>
+                        <li>
+                            <a href="ranklist.html" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div style="text-align:center">
+
+                <br>
+                <br> All Copyright Reserved 2010-2011
+                <a href="index.html">SDUSTOJ</a> TEAM
+                <br> GPL2.0 2003-2011 HUSTOJ Project TEAM
+                <br> Anything about the Problems, Please Contact Admin:
+                <a href="404.html">admin</a>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

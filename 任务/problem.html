@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>Welcome to SDUST online judge</title>
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<!--顶部导航-->
+<!--导航   标签页-->
+<!--ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="index.html">Home</a></li>
+    <li role="presentation"><a href="problem.html">Problem</a></li>
+    <li role="presentation"><a href="standing.html">Standing</a></li>
+  </ul-->
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed active" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">SDUSTOJ</a>
+			</div>
+
+
+			<!--右边-->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="webbocard.html">Web Bocard</a>
+					</li>
+					<li class="active">
+						<a href="problem.html">Problem
+							<!--span class="sr-only">(current)</span-->
+						</a>
+					</li>
+					<li>
+						<a href="status.html">Status</a>
+					</li>
+					<li>
+						<a href="ranklist.html">Ranklist</a>
+					</li>
+					<li>
+						<a href="contest/contest.html">Context</a>
+					</li>
+                    <li>
+                        <a href="FAQ.html">F.A.Qs</a>
+                    </li>
+
+				</ul>
+
+				<!--登陆-->
+				<form class="navbar-form navbar-right">
+					<!-- 按钮触发模态框 -->
+
+					<button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
+						Login
+					</button>
+					<!-- 模态框（Modal） -->
+					<button type="button" class="btn btn-default">Register</button>
+				</form>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	<!-- 模态框（Modal） 应放在外面-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						登陆
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="table table-striped">
+						<from>
+							<input class="form-control" type="text" placeholder="Username">
+						</from>
+						<h3></h3>
+						<from>
+							<input class="form-control" type="password" placeholder="Password">
+						</from>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<samll>
+						<a>忘记密码?</a>
+					</samll>
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary">
+						登陆
+					</button>
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+</body>
+
+
+<!--*****************************************************************************-->
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            
+            <table class="table table-striped">
+                <thead align=center>
+                    <tr align='center' class='evenrow'>
+                        <td width=30%>
+                            <form class=form-inline>
+                                <input class="form-control search-query" type='text' placeholder="Problem ID">
+                                <button class="form-control" type='submit'>查找</button>
+                            </form>
+                        </td>
+
+                        <td width=30%>
+                            <form class="form-inline">
+                                <input type="text" class="form-control search-query" placeholder="Title">
+                                <button type="submit" class="form-control">查找</button>
+                            </form>
+                        </td>
+                        <td width=20%></td>
+                        <td width=20%></td>
+                    </tr>
+                </thead>
+            </table>
+
+            <table class="table table-striped table-hover">
+                <thead align=center style="background-color:cornflowerblue">
+                    <tr>
+                        <td></td>
+                        <td>Problem Id</td>
+                        <td>Title</td>
+                        <td>Source</td>
+                        <td>AC</td>
+                        <td>Submit</td>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1031</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1031'>dognew类</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1031&jresult=4'>1764</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1031'>2474</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1032</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1032'>rectanglenew类</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1032&jresult=4'>1679</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1032'>2183</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1033</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1033'>cirle类</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1033&jresult=4'>1484</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1033'>1982</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1034</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1034'>person类（拷贝构造练习）new</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1034&jresult=4'>1120</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1034'>1950</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1035</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1035'>职工类（静态成员练习）</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1035&jresult=4'>1491</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1035'>2066</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1036</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1036'>book类（静态成员练习）</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1036&jresult=4'>1319</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1036'>3450</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1037</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1037'>mystring类</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1037&jresult=4'>1311</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1037'>2214</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1038</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1038'>日期类</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1038&jresult=4'>1687</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1038'>2173</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1056</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1056'>日期类new</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1056&jresult=4'>767</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1056'>1123</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1057</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1057'>继承实例1</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1057&jresult=4'>2183</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1057'>4938</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1058</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1058'>职工档案管理系统</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1058&jresult=4'>905</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1058'>1239</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1059</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1059'>继承实例2（象棋）</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1059&jresult=4'>1893</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1059'>3895</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1064</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1064'>置换码</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>Mid-Cent</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1064&jresult=4'>96</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1064'>345</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1065</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1065'>网页导航</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>East Cen</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1065&jresult=4'>364</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1065'>1062</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1066</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1066'>位图内封闭区域的边界</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>Southwes</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1066&jresult=4'>225</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1066'>620</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1067</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1067'>一种基于摩尔斯电码密码</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>Greater </nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1067&jresult=4'>241</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1067'>452</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1071</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1071'>水分子结构</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>East Cen</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1071&jresult=4'>165</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1071'>373</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1072</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1072'>竞赛的排名表</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>Mid-Cent</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1072&jresult=4'>42</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1072'>165</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1073</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1073'>简单的C表达式求值</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>uva.onli</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1073&jresult=4'>155</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1073'>394</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1074</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1074'>团队队列</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>uva.onli</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1074&jresult=4'>2</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1074'>84</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1075</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1075'>通灵的扑克牌玩家</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>uva.onli</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1075&jresult=4'>2</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1075'>26</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1076</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1076'>一手牌</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>Waterloo</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1076&jresult=4'>72</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1076'>176</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1077</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1077'>微型的数据表和查询</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>POJ Foun</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1077&jresult=4'>1</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1077'>3</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1081</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1081'>奇妙的字符串</a>
+                        </td>
+                        <td align='center'>
+                            <nobr></nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1081&jresult=4'>22</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1081'>68</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1082</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1082'>螺旋五角星</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>Author b</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1082&jresult=4'>73</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1082'>310</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1083</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1083'>扑克牌游戏</a>
+                        </td>
+                        <td align='center'>
+                            <nobr></nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1083&jresult=4'>2</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1083'>7</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1084</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1084'>一些好玩的游戏</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>Author b</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1084&jresult=4'>21</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1084'>104</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1085</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1085'>数字替换</a>
+                        </td>
+                        <td align='center'>
+                            <nobr></nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1085&jresult=4'>60</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1085'>205</a>
+                        </td>
+                    </tr>
+                    <tr class='evenrow'>
+                        <td></td>
+                        <td align='center'>1086</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1086'>string</a>
+                        </td>
+                        <td align='center'>
+                            <nobr>clj</nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1086&jresult=4'>727</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1086'>958</a>
+                        </td>
+                    </tr>
+                    <tr class='oddrow'>
+                        <td></td>
+                        <td align='center'>1087</td>
+                        <td align='left'>
+                            <a href='problem.php?id=1087'>几何形状</a>
+                        </td>
+                        <td align='center'>
+                            <nobr></nobr>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1087&jresult=4'>732</a>
+                        </td>
+                        <td align='center'>
+                            <a href='status.php?problem_id=1087'>1641</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div align=center>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="problem.html" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="problem.html">1</a>
+                        </li>
+                        <li>
+                            <a href="problem.html">2</a>
+                        </li>
+                        <li>
+                            <a href="problem.html">3</a>
+                        </li>
+                        <li>
+                            <a href="problem.html">4</a>
+                        </li>
+                        <li>
+                            <a href="problem.html">5</a>
+                        </li>
+                        <li>
+                            <a href="problem.html" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div style="text-align:center">
+
+                <br>
+                <br> All Copyright Reserved 2010-2011
+                <a href="index.html">SDUSTOJ</a> TEAM
+                <br> GPL2.0 2003-2011 HUSTOJ Project TEAM
+                <br> Anything about the Problems, Please Contact Admin:
+                <a href="404.html">admin</a>
+            
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>Welcome to SDUST online judge</title>
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<!--顶部导航-->
+<!--导航   标签页-->
+<!--ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="index.html">Home</a></li>
+    <li role="presentation"><a href="problem.html">Problem</a></li>
+    <li role="presentation"><a href="standing.html">Standing</a></li>
+  </ul-->
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed active" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">SDUSTOJ</a>
+			</div>
+
+
+			<!--右边-->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div>
+				<ul class="nav">
+					<li>
+						<a href="webbocard.html">Web Bocard</a>
+					</li>
+					<li>
+						<a href="problem.html">Problem
+						</a>
+					</li>
+					<li>
+						<a href="status.html">Status</a>
+					</li>
+					<li>
+						<a href="ranklist.html">Ranklist</a>
+					</li>
+					<li>
+						<a href="contest/contest.html">Context</a>
+					</li>
+					<li>
+						<a href="FAQ.html">F.A.Qs</a>
+					</li>
+				</ul>
+
+				<!--登陆-->
+				<form class="navbar-form navbar-right">
+					<!-- 按钮触发模态框 -->
+
+					<button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
+						Login
+					</button>
+					<!-- 模态框（Modal） -->
+					<button type="button" class="btn btn-default">Register</button>
+				</form>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	<!-- 模态框（Modal） 应放在外面-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						登陆
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="table table-striped">
+						<from>
+							<input class="form-control" type="text" placeholder="Username">
+						</from>
+						<h3></h3>
+						<from>
+							<input class="form-control" type="password" placeholder="Password">
+						</from>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<samll>
+						<a>忘记密码?</a>
+					</samll>
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary">
+						登陆
+					</button>
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+</body>
+
+<!--*****************************以下是内容**************************************-->
+
+<body>
+    <div class="container">
+    <div class="jumbotron">
+        <!--my begin-->
+
+        <div style="text-align:center">
+			<br>
+            <font size=6><b>Welcome To SDUST Online Judge</b></font>
+        </div>
+        <br>
+        <h3>
+            <b>山东科技大学OnlineJudge系统正在试运行！</b>
+            <small>-[wzh]</small>
+        </h3>
+        <p>
+            <font size="4">——大家好，我是本OnlineJudge系统的维护者。本OJ后台使用安装在
+                <code>Debian Linux</code>服务器上的
+                <code>GCC</code>编译器进行程序评测，
+                <code>MSVC6.0</code>上能够使用的非
+                <code>ANSI C</code>的语法、头文件、库函数无法在服务器上编译通过，请提交用符合C99标准的语法、库函数、头文件编写的程序。关于编译器命令设定、程序评判结果的含义详情见系统的<a href="FAQ.html">F.A.Qs</a>。</p>
+
+        您在使用过程中遇到了OJ系统本身使用的问题（不包括如何编写程序的问题）、对OJ系统有什么意见和建议，请通过以下方式（按优先级）联系我：
+        <br>
+        <ul>
+            <li>QQ上，QQ群里，如果您知道我的QQ或者群号； </li>
+            <li>打电话或发短信，如果您知道我的号码； </li>
+            <li>发邮件到：sdustoj@163.co </li>
+            <li>到办公室找我：J13#-211（信息学院软件工程系）。欢迎有志青年加入我们的开发团队。</li>
+            <br> ——本OJ系统在学校内网均可用内网ip访问，包括办公室、家属区、各教学楼联网的教室、校机房、各学院机房、学生宿舍有线网络、学生宿舍部分WLAN线路（但不括3G网卡）。不在以上场所访问本系统，可使用如下域名（据用户反应部分通信服务商无法解析这个域名）或外网ip地址访问：
+            <br>
+            <a href="#">sdustoj.pw</a> 或
+            <a href="http://cise.sdust.edu.cn/OJ/">cise.sdust.edu.cn/OJ/</a>
+            <br>
+            <a href="http://219.218.128.149/JudgeOnline/">219.218.128.149/JudgeOnline</a>
+            </font>
+            
+            <h3>Append Code”使用说明
+                <small>-[wzh]</small>
+            </h3>
+            <p>
+                <font size="4">系统中的每个题目最后都有一个“Append Code”项。有些题目的“Append Code”项不为空。这些题目的“Append Code”项中有
+                    <code>append.c</code>文件或
+                    <code>append.cc</code>文件，点击可以打开。
+                    <code>append.c</code>中的代码会被强制追加到任何以C语言提交的代码末尾，
+                    <code>append.cc</code>中的代码会被强制追加到任何以C++提交的代码末尾。 “Append Code”项不为空的题目，用C语言编译并评测的程序是提交的代码和
+                    <code>append.c</code>中代码的合并。C++语言则是评测提交的代码和
+                    <code>append.cc</code>中代码的合并。也就是说，仅需要提交一个程序的前半部分，并且这个程序的后半部分已经给出，固定不变。OJ系统会自动把这两部分合并为一个完整的程序进行评测。含有“Append Code”项的题目，是为了测试编写函数和编写类而准备的。
+                    <br>
+                    <br>以题目“A+B Problem”为例，若append.c中已经给出如下代码：
+
+                    <pre><span>int main() 
+{ 
+    int a, b; 
+    while(scanf("%d%d", &a, &b) != EOF) 
+    printf("%d\n", sum(a, b));
+    return 0; 
+}</span></pre> 提交的代码是
+                    <pre><span><font size = "4">#include &lt;stdio.h&gt;
+int sum(int x, int y)
+{
+    return x + y;
+}</font></span></pre> 最终评测的代码是这两部分合并为一个完整的程序：
+                    <pre><span><font size = "4">#include &lt;stdio.h&gt;
+int sum(int x, int y)
+{
+    return x + y;
+} 
+int main()
+{
+    int a, b;
+    while(scanf("%d%d", &a, &b) != EOF)
+        printf("%d\n", sum(a, b));
+    return 0;
+}</font></span></pre>
+                    <h3>包含“Append Code”项的题目的做题步骤</h3>
+                    <ol>
+                        <li>首先，将
+                            <code>append.c</code>或
+                            <code>append.cc</code>中内容拷贝出来，作为你程序最后一部分，编写这个程序的前半部分，包括头文件的定义</li>
+                        <li>编写程序时，不要通过改动
+                            <code>append.c</code>或
+                            <code>append.cc</code>中所给的那部分程序代码，使你的程序运行正确。因为你无法修改题目里包含的“Append Code”内容，这样的改动在OJ系统上提交是不会起作用的。你应该尝试读懂“Append Code”中的代码，并完善这个程序的前半部分。</li>
+                        <li>提交时要注意，不要提交
+                            <code>append.c</code>或
+                            <code>append.cc</code>中的内容，只提交你自己编写的那部分代码；除非你想看到一个程序中有双份“Append Code”代码，这往往会出现main()函数重复定义的编译错误。因为“Append Code”中一般都是程序的
+                            <code>main()</code>部分。</li>
+                    </ol>
+
+                    =========================================================================================
+                    <h3>OnlineJudge系统使用说明<small>-[wzh]</small></h3>
+                    OnlineJudge系统支持多种程序设计语言，包括：C语言、C++、Java、C#、php、Python、Perl、Pascal、Ruby和unix shell等。可以OnlineJudge系统布置作业让学生在线完成，也可以进行在线命题考试。本系统可供编程语言类课程教学使用，也可用来进行数据结构、算法设计与分析等对程序运行效率有要求课程教学使用，也可用来进行操作系统、编译原理、数据库系统等课程的课程设计。
+                    <br><a href="http://219.218.128.149/JudgeOnline/discuss/thread.php?tid=4&cid=">教师用OJ系统开设实验、布置作业的使用说明</a><br>
+                    <a href="http://219.218.128.149/JudgeOnline/discuss/thread.php?tid=7&cid=">学生使用OJ系统做作业和考试的使用说明</a><br>
+                    <a href="http://192.168.139.201/JudgeOnline/discuss/thread.php?tid=41&cid=">忘记密码?</a> <br>
+                    出题请联系：sdustoj@163.com 
+                    =========================================================================================
+                </font>
+            </p>
+            <!--my foot-->
+  
+    <div style="text-align:center">
+
+        <br><br>
+            All Copyright Reserved 2010-2011 <a href="index.html">SDUSTOJ</a> TEAM<br>
+            GPL2.0 2003-2011 HUSTOJ Project TEAM<br>
+            Anything about the Problems, Please Contact Admin:<a href="#">admin</a>
+    </div>
+    </div><!--灰色底容器-->
+</div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Welcome to SDUST online judge</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!--********************************编辑框脚本*********************-->
+    <script language="Javascript" type="text/javascript" src="../edit_area/edit_area_full.js"></script>
+    <script language="Javascript" type="text/javascript">
+        // initialisation
+        editAreaLoader.init({
+            id: "example_1" // id of the textarea to transform      
+            , start_highlight: true  // if start with highlight
+            , allow_resize: "both"
+            , allow_toggle: true
+            , word_wrap: true
+            , language: "en"
+            , syntax: "php"
+        });
+
+        editAreaLoader.init({
+            id: "example_2" // id of the textarea to transform  
+            , start_highlight: true
+            , allow_toggle: false
+            , language: "en"
+            , syntax: "html"
+            , toolbar: "search, go_to_line, |, undo, redo, |, select_font, |, syntax_selection, |, change_smooth_selection, highlight, reset_highlight, |, help"
+            , syntax_selection_allow: "css,html,js,php,python,vb,xml,c,cpp,sql,basic,pas,brainfuck"
+            , is_multi_files: true
+            , EA_load_callback: "editAreaLoaded"
+            , show_line_colors: true
+        });
+
+        editAreaLoader.init({
+            id: "example_3" // id of the textarea to transform  
+            , start_highlight: true
+            , font_size: "8"
+            , font_family: "verdana, monospace"
+            , allow_resize: "y"
+            , allow_toggle: false
+            , language: "fr"
+            , syntax: "css"
+            , toolbar: "new_document, save, load, |, charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
+            , load_callback: "my_load"
+            , save_callback: "my_save"
+            , plugins: "charmap"
+            , charmap_default: "arrows"
+
+        });
+
+        editAreaLoader.init({
+            id: "example_4" // id of the textarea to transform      
+            //,start_highlight: true    // if start with highlight
+            //,font_size: "10"  
+            , allow_resize: "no"
+            , allow_toggle: true
+            , language: "de"
+            , syntax: "python"
+            , load_callback: "my_load"
+            , save_callback: "my_save"
+            , display: "later"
+            , replace_tab_by_spaces: 4
+            , min_height: 350
+        });
+
+        // callback functions
+        function my_save(id, content) {
+            alert("Here is the content of the EditArea '" + id + "' as received by the save callback function:\n" + content);
+        }
+
+        function my_load(id) {
+            editAreaLoader.setValue(id, "The content is loaded from the load_callback function into EditArea");
+        }
+
+        function test_setSelectionRange(id) {
+            editAreaLoader.setSelectionRange(id, 100, 150);
+        }
+
+        function test_getSelectionRange(id) {
+            var sel = editAreaLoader.getSelectionRange(id);
+            alert("start: " + sel["start"] + "\nend: " + sel["end"]);
+        }
+
+        function test_setSelectedText(id) {
+            text = "[REPLACED SELECTION]";
+            editAreaLoader.setSelectedText(id, text);
+        }
+
+        function test_getSelectedText(id) {
+            alert(editAreaLoader.getSelectedText(id));
+        }
+
+        function editAreaLoaded(id) {
+            if (id == "example_2") {
+                open_file1();
+                open_file2();
+            }
+        }
+
+        function open_file1() {
+            var new_file = { id: "to\\ é # € to", text: "$authors= array();\n$news= array();", syntax: 'php', title: 'beautiful title' };
+            editAreaLoader.openFile('example_2', new_file);
+        }
+
+        function open_file2() {
+            var new_file = { id: "Filename", text: "<a href=\"toto\">\n\tbouh\n</a>\n<!-- it's a comment -->", syntax: 'html' };
+            editAreaLoader.openFile('example_2', new_file);
+        }
+
+        function close_file1() {
+            editAreaLoader.closeFile('example_2', "to\\ é # € to");
+        }
+
+        function toogle_editable(id) {
+            editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
+        }
+
+    </script>
+</head>
+
+<!--顶部导航-->
+<!--导航   标签页-->
+<!--ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="index.html">Home</a></li>
+    <li role="presentation"><a href="problem.html">Problem</a></li>
+    <li role="presentation"><a href="standing.html">Standing</a></li>
+  </ul-->
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed active" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">SDUSTOJ</a>
+            </div>
+
+
+            <!--右边-->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../webbocard.html">Web Bocard</a>
+                    </li>
+                    <li>
+                        <a href="../problem.html">Problem
+                            <!--span class="sr-only">(current)</span-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../status.html">Status</a>
+                    </li>
+                    <li>
+                        <a href="../ranklist.html">Ranklist</a>
+                    </li>
+                    <li class="active">
+                        <a href="contest.html">Context</a>
+                    </li>
+                    <li>
+                        <a>[</a>
+                    </li>
+                    <li>
+                        <a href="problem.html">Problem List</a>
+                    </li>
+                    <li>
+                        <a href="standing.html">Standing</a>
+                    </li>
+                    <li>
+                        <a href="status.html">Status</a>
+                    </li>
+                    <li>
+                        <a href="statistics.html">Statistics</a>
+                    </li>
+                    <li>
+                        <a>]</a>
+                    </li>
+                    <li>
+                        <a href="../FAQ.html">F.A.Qs</a>
+                    </li>
+                </ul>
+
+                <!--登陆-->
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="button" class="btn btn-default">Login</button>
+                    <button type="button" class="btn btn-default">Register</button>
+                </form>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</body>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+
+            <center>
+                <form action='' method='post'>
+
+                    <center>
+                        <h3>Submit</h3>
+                    </center>
+                    <table>
+                        <tr>
+                            <td width=40%></td>
+                            <td width=8%>Language:</td>
+                            <td width=8% item-width="100%">
+                                <select>
+                                    <option value="C">C</option>
+                                    <option value="CPP">CPP</option>
+                                    <option value="JAVA">JAVA</option>
+                                    <option value="Python">Python</option>
+                                    <option value="C#">C#</option>
+                                    <option value="Ruby">Ruby</option>
+                                    <option value="Pascal">Pascal</option>
+                                    <option value="Perl">Perl</option>
+                                </select>
+                            </td>
+                            <td width=40%></td>
+                        </tr>
+                    </table>
+                    <textarea id="example_1" style="height: 400px; width: 80%;" name="test_1"></textarea>
+                </form>
+            </center>
+
+            <table class="table">
+
+                <tr>
+                    <td width=30%></td>
+                    <td width=10%>
+                        <form class="form-inline">
+                            <button type="submit" class="form-control">Submit</button>
+                        </form>
+                    </td>
+                    <td width=5%></td>
+                    <td width=10%>
+                        <form class="form-inline">
+                            <button type="submit" class="form-control">Clear</button>
+                        </form>
+                    </td>
+                    <td width=30%></td>
+                </tr>
+
+            </table>
+            <div style="text-align:center">
+
+                <br>
+                <br> All Copyright Reserved 2010-2011
+                <a href="../index.html">SDUSTOJ</a> TEAM
+                <br> GPL2.0 2003-2011 HUSTOJ Project TEAM
+                <br> Anything about the Problems, Please Contact Admin:
+                <a href="#">admin</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

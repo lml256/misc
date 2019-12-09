@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>做题统计 - ACManager</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/datatables/1.10.13/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/datatables/1.10.13/css/jquery.dataTables.min.css">
+
+    <script>
+        $(document).ready(function () {
+            $("#id").hide();
+            var table = $('#mytable').DataTable({
+                "order": [[7, "desc"]],
+                "columnDefs": [
+                    { "type": "chinese-string", targets: 1 },
+                    { "contentPadding": "", targets: 1 }
+                ]
+            });
+            $('#savabutton').click(function () {
+                $.post("/ACManager/auth/modifyUserByAdmin", {
+                    id: $('#id').val(),
+                    username: $('#username').val(),
+                    realName: $('#realname').val(),
+                    major: $('#major').val(),
+                    cfname: $('#cfname').val(),
+                    vjname: $('#vjname').val(),
+                    bcname: $('#bcname').val(),
+                    hduName: $('#hduName').val(),
+                    pojName: $('#pojName').val(),
+                    uvaId: $('#uvaId').val(),
+                    blogUrl: $('#blogUrl').val(),
+                    type: $('#status option:selected').val()
+                }, function (data) {
+                    alert(data);
+                    location.reload();
+                })
+            });
+            $('#btn_updatecfbc').click(function () {
+                $(this).attr("disabled", "disabled");
+                $.post("/ACManager/statistics/updateCFBC", {}, function (data) {
+                    alert(data);
+                    location.reload()
+                });
+            });
+            $('#addbutton').click(function () {
+                $(this).attr("disabled", "disabled");
+                $.post("/ACManager/userac/updatedb", {}, function (data) {
+                    alert(data);
+                    location.reload()
+                });
+            });
+        });
+        function updata(obj) {
+            var tds = $(obj).parent().parent().find('td');
+            var username = tds.eq(1).text();
+            var url = "/ACManager/api/user/" + username + "/detail";
+            $.get(url, {}, function (data) {
+                var json = JSON.parse(data);
+                $('#id').val(json.id);
+                $('#username').val(json.username);
+                $('#uvaId').val(json.uvaId);
+                $('#vjname').val(json.vjname);
+                $('#cfname').val(json.cfname);
+                $('#bcname').val(json.bcname);
+                $('#realname').val(json.realName);
+                $('#major').val(json.major);
+                $('#hduName').val(json.hduName);
+                $('#pojName').val(json.pojName);
+                $('#blogUrl').val(json.blogUrl);
+                var form_text = $.trim(json.type);
+                $("#status option").each(function (i, item) {
+                    var option_text = $(this).attr("value");
+                    if (option_text == form_text) {
+                        $(this).prop("selected", "selected")
+                    }
+                });
+            });
+        }
+    </script>
+    <script>
+        function exportTable() {
+            $("#mytable").table2excel({
+                name: "doc1",
+                filename: "队员做题统计结果",
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container-fluid" style="margin-right: 0.5%;margin-left: 0.5%">
+
+
+
+
+
+
+        <script>
+            /*
+             *  jQuery table2excel - v1.0.2
+             *  jQuery plugin to export an .xls file in browser from an HTML table
+             *  https://github.com/rainabba/jquery-table2excel
+             *
+             *  Made by rainabba
+             *  Under MIT License
+             */
+            !function (a, b, c, d) { function e(b, c) { this.element = b, this.settings = a.extend({}, h, c), this._defaults = h, this._name = g, this.init() } function f(a) { return (a.filename ? a.filename : "table2excel") + (a.fileext ? a.fileext : ".xlsx") } var g = "table2excel", h = { exclude: ".noExl", name: "Table2Excel" }; e.prototype = { init: function () { var b = this, c = '<meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">'; b.template = { head: '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">' + c + "<head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets>", sheet: { head: "<x:ExcelWorksheet><x:Name>", tail: "</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>" }, mid: "</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body>", table: { head: "<table>", tail: "</table>" }, foot: "</body></html>" }, b.tableRows = [], a(b.element).each(function (c, d) { var e = ""; a(d).find("tr").not(b.settings.exclude).each(function (b, c) { e += "<tr>" + a(c).html() + "</tr>" }), b.tableRows.push(e) }), b.tableToExcel(b.tableRows, b.settings.name, b.settings.sheetName) }, tableToExcel: function (d, e, g) { var h, i, j, k = this, l = ""; if (k.uri = "data:application/vnd.ms-excel;base64,", k.base64 = function (a) { return b.btoa(unescape(encodeURIComponent(a))) }, k.format = function (a, b) { return a.replace(/{(\w+)}/g, function (a, c) { return b[c] }) }, g = "undefined" == typeof g ? "Sheet" : g, k.ctx = { worksheet: e || "Worksheet", table: d, sheetName: g }, l = k.template.head, a.isArray(d)) for (h in d) l += k.template.sheet.head + g + h + k.template.sheet.tail; if (l += k.template.mid, a.isArray(d)) for (h in d) l += k.template.table.head + "{table" + h + "}" + k.template.table.tail; l += k.template.foot; for (h in d) k.ctx["table" + h] = d[h]; if (delete k.ctx.table, "undefined" != typeof msie && msie > 0 || navigator.userAgent.match(/Trident.*rv\:11\./)) if ("undefined" != typeof Blob) { for (var h in d) { var r = eval("/{table[" + h + "]}/"); l = l.replace(r, d[h]); } l = [l]; var m = new Blob(l, { type: "text/html" }); b.navigator.msSaveBlob(m, f(k.settings)) } else txtArea1.document.open("text/html", "replace"), txtArea1.document.write(k.format(l, k.ctx)), txtArea1.document.close(), txtArea1.focus(), sa = txtArea1.document.execCommand("SaveAs", !0, f(k.settings)); else i = k.uri + k.base64(k.format(l, k.ctx)), j = c.createElement("a"), j.download = f(k.settings), j.href = i, c.body.appendChild(j), j.click(), c.body.removeChild(j); return !0 } }, a.fn[g] = function (b) { var c = this; return c.each(function () { a.data(c, "plugin_" + g) || a.data(c, "plugin_" + g, new e(this, b)) }), c } }(jQuery, window, document);
+        </script>
+
+        <style>
+            body {
+                font-family: "Microsoft Yahei", 微软雅黑, Arial, Consolas, sans-serif;
+            }
+        </style>
+        <div class="row">
+            <nav class="nav navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand"> ACManager</div>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/ACManager/">首页</a>
+                            </li>
+                            <li>
+                                <a href="/ACManager/userac/showTable">做题统计</a>
+                            </li>
+                            <li>
+                                <a href="/ACManager/statistics/showTable">比赛统计</a>
+                            </li>
+                            <li>
+                                <a href="/ACManager/cpt/list">专题训练</a>
+                            </li>
+                            <li>
+                                <a href="/ACManager/training/list">集训管理</a>
+                            </li>
+                            <li>
+                                <a href="../Blog">队内博客</a>
+                            </li>
+                            <li>
+                                <a href="/ACManager/acmer/infos ">队员去向</a>
+                            </li>
+                            <li>
+                                <a href="/ACManager/oj/recentContest ">近期比赛</a>
+                            </li>
+                            <li>
+                                <a href="https://www.eoapi.cn/#/share/login?shareCode=ZE1ddL" target="_blank">API</a>
+                            </li>
+                        </ul>
+
+                        <div class="navbar-form navbar-right">
+                            <a class="navbar-link" href="/ACManager/auth/login">登录</a>
+                            <a class="navbar-link" href="/ACManager/auth/rg">注册</a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row" style="padding-bottom: 20px">
+        </div>
+
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">队员做题统计结果</h3>
+                </div>
+                <div class="panel-body" id="table-div">
+
+                    <div class="row" style="padding-left: 20px">
+                        <div class="pull-left">
+                            <button class="btn btn-info btn-sm" id="addbutton">更新数据</button>
+                            <button class="btn btn-info btn-sm" onclick="exportTable()">导出表格</button>
+                            <a class="btn btn-info btn-sm" href="/ACManager/cpt/statistic/5/1" target="_blank">入门经典</a>
+                            <a class="btn btn-info btn-sm" href="/ACManager/cpt/statistic/5/1000" target="_blank">训练指南</a>
+                        </div>
+                    </div>
+                    <hr style="margin:10px " />
+                    <table id="table" data-order='[[ 2, "desc" ]]' data-page-length='25'>
+                    </table>
+                    <script>
+                        $(document).ready(function () {
+                            $('#table').DataTable();
+                        });
+                        let ojs;
+                        function get_data(url) {
+                            xhr = new XMLHttpRequest();
+                            let res = null;
+                            xhr.open('GET', url, false);
+                            xhr.onreadystatechange = function () {
+                                if (xhr.readyState === 4) {
+                                    if (xhr.status == 200) {
+                                        res_json = JSON.parse(xhr.responseText);
+                                        res = res_json;
+                                    } else if (xhr.status >= 400 && xhr.status < 500) {
+
+                                    }
+                                }
+                            }
+                            xhr.send();
+                            console.log(xhr.responseText);
+                            return res;
+                        }
+                        /*function get_data1(url) {
+                            var jqxhr = $.ajax(url, {
+                                dataType: 'json',
+                                async: false,
+                            });
+                            let json = JSON.parse(jqxhr.responseText);
+                            return json;
+                        }*/
+                        function get_user_item() {
+                            var problem_statistics = new Array();
+                            var user_datas = get_data('http://www.92ac.cn:8009/api/ac?format=json');
+                            if (user_datas == null) console.log('user_datas is empty');
+                            ojs = user_datas["ojs"];
+                            for (let user_data of user_datas["ac"]) {
+                                problem_statistic = new Map();
+                                problem_statistic.set("username", user_data["username"]);
+                                problem_statistic.set("realName", user_data["realName"]);
+                                for (let item of user_data["count"]) {
+                                    problem_statistic.set(item["oj_name"], item["count"]);
+
+                                }
+
+                                problem_statistics.push(problem_statistic);
+                            }
+                            return problem_statistics;
+
+                        }
+                        function product_form() {
+                            table = $("#table")
+                            problem_statistics = get_user_item();
+                            tr_header = $("<tr></tr>");
+                            tr_header.append("<td>" + "姓名" + "</td>");
+                            for (let oj of ojs) {
+                                tr_header.append("<td>" + oj + "</td>");
+                            }
+                            thead = $("<thead></thead>");
+                            thead.append(tr_header);
+                            table.append(thead);
+                            let tbody = $("<tbody></tbody");
+                            for (let problem_statistic of problem_statistics) {
+                                tr = $("<tr></tr>")
+                                tr.append("<td>" + problem_statistic.get("realName") + "</td>")
+                                for (let oj of ojs) {
+                                    let num = problem_statistic.get(oj);
+                                    if (num) {
+                                        tr.append("<td>" + problem_statistic.get(oj) + "</td>");
+                                    } else {
+                                        tr.append("<td>" + "0" + "</td>");
+                                    }
+                                }
+                                tbody.append(tr);
+                            }
+                            table.append(tbody);
+                        }
+                        product_form();
+                    </script>
+                    <footer class="footer">
+                        <div class="container-fluid" style="margin-right: 0.7%;margin-left: 0.7%">
+                            <hr/>
+                            <div class="text-muted">
+                                <p class="text-center text-muted">
+                                    Developer:
+                                    <a href="http://www.zzkun.com/" target="_blank" class="">Geekun</a> |
+                                    <a href="http://user.qzone.qq.com/985691039" target="_blank" class="">Kela</a> |
+                                    <a href="http://user.qzone.qq.com/1240288959" target="_blank" class="">Yang</a>
+                                    &nbsp; GitHub：
+                                    <iframe src="https://ghbtns.com/github-btn.html?user=kun368&repo=ACManager&type=star&count=true" frameborder="0" scrolling="0"
+                                        width="77px" height="17px"></iframe>
+                                </p>
+                                <p class="text-center text-muted">
+                                </p>
+                                <p class="text-center text-muted">All Copyright Reserved ©2016-2017
+                                    <a href="http://www.sdust.edu.cn/" target="_blank">SDUST</a> ACM Team.</p>
+                            </div>
+                        </div>
+                    </footer>
+                    <script>
+                        (function (i, s, o, g, r, a, m) {
+                            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                                (i[r].q = i[r].q || []).push(arguments)
+                            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+                        ga('create', 'UA-82051501-1', 'auto');
+                        ga('send', 'pageview');
+
+                    </script>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">修改用户信息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" action="" method="post">
+                                        <!--填写提交地址-->
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="" placeholder="id" id="id" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            用户名:
+                                            <input type="text" class="form-control" id="username" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            真实姓名:
+                                            <input type="text" class="form-control" id="realname" required>
+                                        </div>
+                                        <div class="form-group">
+                                            专业:
+                                            <input type="text" class="form-control" id="major" required>
+                                        </div>
+                                        <div class="form-group">
+                                            Virtual Judge 用户名:
+                                            <input type="text" class="form-control" id="vjname">
+                                        </div>
+                                        <div class="form-group">
+                                            Codeforces 用户名:
+                                            <input type="text" class="form-control" id="cfname">
+                                        </div>
+                                        <div class="form-group">
+                                            BestCoder 用户名:
+                                            <input type="text" class="form-control" id="bcname">
+                                        </div>
+                                        <div class="form-group">
+                                            HDU 用户名:
+                                            <input type="text" class="form-control" id="hduName">
+                                        </div>
+                                        <div class="form-group">
+                                            POJ 用户名:
+                                            <input type="text" class="form-control" id="pojName">
+                                        </div>
+                                        <div class="form-group">
+                                            UVaId:
+                                            <input class="form-control" id="uvaId" required>
+                                        </div>
+                                        <div class="form-group">
+                                            博客链接:
+                                            <input type="url" class="form-control" id="blogUrl">
+                                        </div>
+
+                                        <div class="form-group">
+                                            状态:
+                                            <select class="form-control" id="status" required>
+                                                <option value="Retired">退役</option>
+                                                <option value="Expeled">除名</option>
+                                                <option value="Acmer">队员</option>
+                                                <option value="Reject">拒绝</option>
+                                                <option value="Verifying">申请</option>
+                                                <option value="New">用户</option>
+                                                <option value="Quit">退出</option>
+                                                <option value="Coach">教练</option>
+                                                <option value="Admin">管理员</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary" id="savabutton">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

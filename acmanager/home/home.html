@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdn.bootcss.com/datatables/1.10.13/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/datatables/1.10.13/css/jquery.dataTables.min.css">
+  <style>
+    .dropdown-round {
+      border: 3px solid #000;
+      border-radius: 10px;
+    }
+
+    .back-color {
+      width: 100%;
+      height: 100px;
+      background: black;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container-fluid container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ACManager</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#">首页</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">统计
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-round">
+                <li>
+                  <a href="#">做题统计</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">比赛统计</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-round">
+                <li>
+                  <a href="#">集训管理</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">队员去向</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">博客</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-tooggle" data-toggle="dropdown" role="button">User<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-round">
+                <li><a href="#">信息修改</a></li>
+                <li class="divider"></li>
+                <li><a href="../index.html">登出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </div>
+  <div style="padding-top: -60px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path class="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"></path>
+      <path class="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"></path>
+      <path class="elementor-shape-fill" d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"></path>
+    </svg>
+  </div>
+  <div>
+    <div class="container">
+      <h2>欢迎！</h2>
+      <div class="col-md-10" role="main">
+        <div class="bs-docs-section">
+          <h2 id="s1" class="page-header">公告</h2>
+          <ol>
+            <li>系统更新频率： 近期比赛:1小时 做题统计:6小时 CF/BC Rating:12小时 全局比赛Rating:1天</li>
+            <li>做题统计数据现支持：VJudge、UVa、HDU、POJ、Codeforces，填写账号后即可统计</li>
+            <li>零题数账号不会出现在做题统计和比赛统计中</li>
+            <li>请尽量使用 Firefox、Chrome、Edge 浏览器访问本站</li>
+            <li>系统外网地址为：http://cise.sdust.edu.cn/acmanager，欢迎有志青年提交 pull request 参与开发</li>
+            <li>由于各大OJ升级网站，导致本站爬虫失效，或者存在其他任何问题建议，请在及时下面留言或联系管理员（QQ 1064406280（现任），1004788567）</li>
+            <li>由于多说评论即将停止服务, 评论服务更换为基于github issues 的gitment, 原有数据将被清空</li>
+          </ol>
+          <h2 id="s2" class="page-header">近期比赛</h2>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">各大OJ近期比赛汇总</h3>
+              </div>
+              <div class="panel-body">
+                <!--table id="table" class="table">
+
+                </table-->
+                <!--以下代码仅用于示例-->
+                <table class="table table-condensed table-striped table-hover">
+                    <thead class="tab-header-area">
+                    <tr>
+                        <th>OJ</th>
+                        <th>Name</th>
+                        <th>Start Time</th>
+                        <th>Week</th>
+                        <th>Access</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>BNU</td>
+                            <td><a href="http://acm.bnu.edu.cn/v3/contest_show.php?cid=9330" target="_blank">2018年北京师范大学信科研究生复试上机</a></td>
+                            <td>2018-03-15 08:30:00</td>
+                            <td>THU</td>
+                            <td>Private</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Topcoder</td>
+                            <td><a href="https://www.topcoder.com/member-onboarding/competing-in-marathon-matches-mm/&amp;sa=D&amp;ust=1517517189581000&amp;usg=AFQjCNHn6pqyrhCWdWsls" target="_blank">Marathon Match 99</a></td>
+                            <td>2018-03-15 09:00:00</td>
+                            <td>THU</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>BNU</td>
+                            <td><a href="http://acm.bnu.edu.cn/v3/contest_show.php?cid=9332" target="_blank">2018年北京师范大学CCCC选拔赛</a></td>
+                            <td>2018-03-17 08:00:00</td>
+                            <td>SAT</td>
+                            <td>Public</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://abc091.contest.atcoder.jp" target="_blank">AtCoder Beginner Contest 091</a></td>
+                            <td>2018-03-17 20:00:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://arc092.contest.atcoder.jp" target="_blank">AtCoder Regular Contest 092</a></td>
+                            <td>2018-03-17 20:00:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Codeforces</td>
+                            <td><a href="http://codeforces.com/contests" target="_blank">VK Cup 2018 - Wild-card Round 1</a></td>
+                            <td>2018-03-17 23:35:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>UOJ</td>
+                            <td><a href="http://uoj.ac/contest/43" target="_blank">UOJ Round #17</a></td>
+                            <td>2018-03-18 19:00:00</td>
+                            <td>SUN</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Codeforces</td>
+                            <td><a href="http://codeforces.com/contests" target="_blank">VK Cup 2018 - Round 2</a></td>
+                            <td>2018-03-24 23:35:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://abc092.contest.atcoder.jp" target="_blank">AtCoder Beginner Contest 092</a></td>
+                            <td>2018-03-25 20:00:00</td>
+                            <td>SUN</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://arc093.contest.atcoder.jp" target="_blank">AtCoder Regular Contest 093</a></td>
+                            <td>2018-03-25 20:00:00</td>
+                            <td>SUN</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Topcoder</td>
+                            <td><a href="https://www.topcoder.com/member-onboarding/competing-in-an-algorithm-match-srm/&amp;sa=D&amp;ust=1512176590667000&amp;usg=AFQjCNHFM0W_DxiHzW" target="_blank">SRM 732</a></td>
+                            <td>2018-03-30 09:00:00</td>
+                            <td>FRI</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://agc022.contest.atcoder.jp" target="_blank">AtCoder Grand Contest 022</a></td>
+                            <td>2018-03-31 20:00:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Codeforces</td>
+                            <td><a href="http://codeforces.com/contests" target="_blank">April Fools Contest 2018</a></td>
+                            <td>2018-04-01 23:35:00</td>
+                            <td>SUN</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>HackerRank</td>
+                            <td><a href="http://www.hackerrank.com/contests" target="_blank">HourRank 27</a></td>
+                            <td>2018-04-02 23:00:00</td>
+                            <td>MON</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>ZJU</td>
+                            <td><a href="http://acm.zju.edu.cn/onlinejudge/contestInfo.do?contestId=371" target="_blank">152 - The 18th Zhejiang University Programming Contest Sponsored by TuSimple</a></td>
+                            <td>2018-04-07 14:00:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://agc023.contest.atcoder.jp" target="_blank">AtCoder Grand Contest 023</a></td>
+                            <td>2018-04-14 20:00:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>HackerRank</td>
+                            <td><a href="http://www.hackerrank.com/contests" target="_blank">Week of Code 37</a></td>
+                            <td>2018-04-16 15:00:00</td>
+                            <td>MON</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Topcoder</td>
+                            <td><a href="https://www.topcoder.com/member-onboarding/competing-in-marathon-matches-mm/&amp;sa=D&amp;ust=1517517189581000&amp;usg=AFQjCNHn6pqyrhCWdWsls" target="_blank">MM 100!!!!!</a></td>
+                            <td>2018-04-19 09:00:00</td>
+                            <td>THU</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Codeforces</td>
+                            <td><a href="http://codeforces.com/contests" target="_blank">VK Cup 2018 - Wild-card Round 2</a></td>
+                            <td>2018-04-19 23:35:00</td>
+                            <td>THU</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Topcoder</td>
+                            <td><a href="https://tco18.topcoder.com/algorithm/rules/" target="_blank">TCO18 Algorithm Round 1A</a></td>
+                            <td>2018-04-22 00:00:00</td>
+                            <td>SUN</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://agc024.contest.atcoder.jp" target="_blank">AtCoder Grand Contest 024</a></td>
+                            <td>2018-04-28 20:00:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>ZJU</td>
+                            <td><a href="http://acm.zju.edu.cn/onlinejudge/contestInfo.do?contestId=378" target="_blank">153 - The 15th Zhejiang Provincial Collegiate Programming Contest Sponsored by TuSimple</a></td>
+                            <td>2018-04-29 13:30:00</td>
+                            <td>SUN</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Codeforces</td>
+                            <td><a href="http://codeforces.com/contests" target="_blank">VK Cup 2018 - Round 3</a></td>
+                            <td>2018-04-29 23:35:00</td>
+                            <td>SUN</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Topcoder</td>
+                            <td><a href="https://tco18.topcoder.com/algorithm/rules/" target="_blank">TCO18 Algorithm Round 1B</a></td>
+                            <td>2018-05-03 19:00:00</td>
+                            <td>THU</td>
+                            <td></td>
+                        </tr>
+              
+                        <tr>
+                            <td>Topcoder</td>
+                            <td><a href="https://tco18.topcoder.com/marathon/rules/" target="_blank">TCO18 Marathon Round 1</a></td>
+                            <td>2018-05-10 09:00:00</td>
+                            <td>THU</td>
+                            <td></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>AtCoder</td>
+                            <td><a href="https://agc025.contest.atcoder.jp" target="_blank">AtCoder Grand Contest 025</a></td>
+                            <td>2018-05-12 20:00:00</td>
+                            <td>SAT</td>
+                            <td></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                <!--示例结束-->
+              </div>
+            </div>
+            <h2 id="s3" class="page-header">专题训练</h2>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">专题训练列表</h3>
+                </div>
+                <div class="panel-body">
+                  <!--table id="table-1" class="table">
+                  
+                  </table-->
+                  <!--以下代码仅用于示例-->
+                  <table class="table table-striped table-hover">
+                      <thead class="tab-header-area">
+                      <tr role="row"><th hidden="" class="sorting" tabindex="0" aria-controls="mytable" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 0px;">ID</th><th class="sorting" tabindex="0" aria-controls="mytable" rowspan="1" colspan="1" aria-label="名称: activate to sort column ascending" style="width: 378px;">名称</th><th class="sorting_desc" tabindex="0" aria-controls="mytable" rowspan="1" colspan="1" aria-sort="descending" aria-label="操作: activate to sort column ascending" style="width: 394px;">操作</th><th class="sorting" tabindex="0" aria-controls="mytable" rowspan="1" colspan="1" aria-label="添加时间: activate to sort column ascending" style="width: 473px;">添加时间</th><th class="sorting" tabindex="0" aria-controls="mytable" rowspan="1" colspan="1" aria-label="题目数: activate to sort column ascending" style="width: 209px;">题目数</th><th class="sorting" tabindex="0" aria-controls="mytable" rowspan="1" colspan="1" aria-label="创建者: activate to sort column ascending" style="width: 210px;">创建者</th></tr>
+                      </thead>
+                      <tfoot>
+  
+                      </tfoot>
+  
+                      <tbody>
+  
+                      
+                          
+                      
+                          
+                      
+                          
+                      
+                          
+                      
+                      <tr role="row" class="odd">
+                              <td hidden="">5</td>
+  
+                              
+                              
+                              
+  
+                              <td><a href="/ACManager/cpt/detail/5" target="_blank">算法竞赛入门经典</a></td>
+                              <td>
+                                  <a href="/ACManager/cpt/statistic/5/0" target="_blank">做题统计</a>
+                                  <a href="/ACManager/cpt/pidsInfo/5/0" target="_blank">题目信息</a>
+                              </td>
+                              <td>2017-03-07T15:52:52</td>
+                              <td>1392</td>
+                              <td>admin</td>
+                          </tr><tr role="row" class="even">
+                              <td hidden="">27</td>
+  
+                              
+                              
+                              
+  
+                              <td><a href="/ACManager/cpt/detail/27" target="_blank">UVA</a></td>
+                              <td>
+                                  <a href="/ACManager/cpt/statistic/27/0" target="_blank">做题统计</a>
+                                  <a href="/ACManager/cpt/pidsInfo/27/0" target="_blank">题目信息</a>
+                              </td>
+                              <td>2017-03-07T00:00</td>
+                              <td>4954</td>
+                              <td>admin</td>
+                          </tr><tr role="row" class="odd">
+                              <td hidden="">28</td>
+  
+                              
+                              
+                              
+  
+                              <td><a href="/ACManager/cpt/detail/28" target="_blank">HDU</a></td>
+                              <td>
+                                  <a href="/ACManager/cpt/statistic/28/0" target="_blank">做题统计</a>
+                                  <a href="/ACManager/cpt/pidsInfo/28/0" target="_blank">题目信息</a>
+                              </td>
+                              <td>2017-03-07T00:00</td>
+                              <td>7000</td>
+                              <td>admin</td>
+                          </tr><tr role="row" class="even">
+                              <td hidden="">29</td>
+  
+                              
+                              
+                              
+  
+                              <td><a href="/ACManager/cpt/detail/29" target="_blank">POJ</a></td>
+                              <td>
+                                  <a href="/ACManager/cpt/statistic/29/0" target="_blank">做题统计</a>
+                                  <a href="/ACManager/cpt/pidsInfo/29/0" target="_blank">题目信息</a>
+                              </td>
+                              <td>2017-03-07T00:00</td>
+                              <td>2891</td>
+                              <td>admin</td>
+                          </tr></tbody>
+                  </table>
+                  <!--示例结束-->
+                </div>
+              </div>
+          </div>
+        </div>
+      <div class="col-md-2" role="complementary">
+        <nav class="affix">
+          <ul class="nav bs-docs-sidenav">
+            <li class="page-sidebar">
+              <a href="#s1">公告</a>
+            </li class="page-sidebar">
+            <li>
+              <a href="#s2">近期比赛</a>
+            </li>
+            <li>
+              <a href="#s3">专题训练</a>
+            </li>
+            <li>
+              <a href="#top">回到顶部</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!--container foot-->
+    <hr>
+  </div>
+  <footer>
+    <div style="text-align:center; margin-top: 20px;">
+      <p>Developer: <a href="#">xxx</a>|<a href="#">xx</a><span> </span>GitHub:<a href="#"><img src="../image/github.svg" class="icon"></a></p>
+      <p>All Copyright Reserved ©2017-2018 <a href="http://www.sdust.edu.cn/" target="_blank">SDUST</a> ACM Team.</p>
+    </div>
+  </footer>
+  <script>
+    function get_data(url) {
+       var jqxhr =  $.ajax(url, {
+         dataType: 'json',
+         async: false
+       });
+       let json = JSON.parse(jqxhr.responseText);
+       return json;
+    }
+    var url = 'http://contests.acmicpc.info/contests.json';
+    console.log(get_data(url));
+    //Access-Control-Allow-Origin问题报错
+  </script>
+</body>
+
+</html>

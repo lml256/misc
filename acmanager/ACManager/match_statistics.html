@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>比赛统计</title>
+  <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdn.bootcss.com/datatables/1.10.13/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/datatables/1.10.13/css/jquery.dataTables.min.css">
+  <style>
+    .myp {
+      display: block;
+      padding: 10px 10px 5px 10px;
+      margin-top: -17px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ACManager</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">首页</a>
+            </li>
+            <li>
+              <a href="userac.html">做题统计</a>
+            </li>
+            <li class="active">
+              <a href="#">比赛统计</a>
+            </li>
+            <li>
+              <a href="#">做题训练</a>
+            </li>
+            <li>
+              <a href="#">集训管理</a>
+            </li>
+            <li>
+              <a href="#">队内博客</a>
+            </li>
+            <li>
+              <a href="#">队员去向</a>
+            </li>
+            <li>
+              <a href="#">近期比赛</a>
+            </li>
+            <li>
+              <a href="#">API</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">登陆</a>
+            </li>
+            <li>
+              <a href="#">注册</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </div>
+  <div class="bg-primary myp">
+    <div class="container">
+      <p>队员比赛统计结果
+        <span style="font-family: Lobster, Monospace;">(Team game statistics)</span>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">确定</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">总览</h3>
+        </div>
+        <div class="panel-body">
+          <table id="table" class="table table-condensed table-striped">
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="margin-top: 20px" class="text-center">
+    <p>Developer:
+      <a href="#">Geekun</a> |
+      <a href="#">Kela</a> |
+      <a href="#">Yang</a> GitHub:
+      <a href="#">
+        <img src="image/github.jpg" style="width: 30px; height: 20px;">
+      </a>
+    </p>
+    <p>All Copyright Reserved ©2016-2017
+      <a href="#">SDUST</a> ACM Team.</p>
+  </footer>
+</body>
+
+</html>

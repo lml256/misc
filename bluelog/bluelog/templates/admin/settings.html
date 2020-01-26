@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>Settings</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      {{ render_form(form, action=url_for(".settings", setting_id=1)) }}
+    </div>
+  </div>
+  <div class="page-header">
+    <h1>User Info</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      {{ render_form(user, action=url_for(".settings", setting_id=2)) }}
+    </div>
+  </div>
+{% endblock %}

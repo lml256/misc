@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+bootstrap-flask = "*"
+flask-moment = "*"
+flask-ckeditor = "*"
+flask-wtf = "*"
+flask-login = "*"
+python-dotenv = "*"
+flask-cors = "*"
+
+[dev-packages]
+faker = "*"
+
+[requires]
+python_version = "3.6"

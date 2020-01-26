@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}欢迎使用图书管理系统{% endblock %}
+{% block navbar %}
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">图书管理系统</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('work.book') }}">添加图书</a></li>
+                <li><a href="{{ url_for('work.add') }}">图书查询</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">欢迎来到图书XX大学图书管理系统</h1>
+    </div>
+    <footer class="footer" style="position: absolute;
+                  bottom: 0;
+                  width: 100%;
+                  height: 50px;">
+    <div class="container">
+        <div class="text-center">
+        <small style="align-content: center">@made by@xxx 2018-10-30</small>
+        </div>
+        </div>
+    </footer>
+{% endblock %}
+

@@ -1,0 +1,58 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+书籍管理
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+        .image {
+            width: 1920px;
+            height: 620px;
+            background-image: url("static/47.jpg");
+        }
+        .top {
+            margin-top: 650px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="image jumbotron">
+        <div class="container">
+            <h2>欢迎</h2>
+            <p>欢迎来到本书籍管理系统，你可以通过查询找到自己喜爱的书籍，也可以在此添加你的书籍，或是进行删除操作</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">开始畅游</a></p>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="nav nav-tabs">
+          <li role="presentation"><a href="{{ url_for("work.index") }}">查询</a></li>
+          <li role="presentation"><a href="{{ url_for("work.add") }}">添加</a></li>
+          <li role="presentation" class="active"><a href="#">删除</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <br>
+        <h1><em>删除书籍</em></h1><br>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">书籍名称</span>
+                      <input name="name" type="text" class="form-control" placeholder="输入图书名称" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('真的要删除吗？')">删除</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </form>
+        <br>
+    </div>
+{% endblock %}

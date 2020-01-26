@@ -1,0 +1,47 @@
+{% extends "hello.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <h1>添加图书</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-3"></div>
+            <div class="col-lg-6">
+                {% for message in get_flashed_messages() %}
+                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                {% endfor %}
+                <form method="post">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">图书名称</span>
+                        <input type="text" name="bookname" class="form-control" placeholder="图书名称" aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">在馆数量</span>
+                        <input type="text" name="localbook" class="form-control" placeholder="在馆数量" aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">借阅数量</span>
+                        <input type="text" name="borrow" class="form-control" placeholder="借阅数量" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+
+    <footer class="footer" style="position: absolute;
+                  bottom: 0;
+                  width: 100%;
+                  height: 50px;">
+    <div class="container">
+        <div class="text-center">
+        <small style="align-content: center">@made by@xxx 2018-10-30</small>
+        </div>
+    </div>
+    </footer>
+{% endblock %}

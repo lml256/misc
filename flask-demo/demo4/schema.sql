@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS book;
+
+CREATE TABLE book (
+  name TEXT NOT NULL,
+  price DOUBLE NOT NULL,
+  num int NOT NULL
+);

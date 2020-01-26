@@ -1,0 +1,61 @@
+{% extends 'hello.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <h1>图书查询</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-3"></div>
+            <div class="col-lg-6">
+                <form method="post">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">图书名称</span>
+                        <input type="text" name="bookname" class="form-control" placeholder="不输入数据默认显示全部图书" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">查询</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+
+    <div class="container">
+        <hr>
+        <br>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            {% if not boollist %}
+                <h4>暂无数据</h4>
+            {% else %}
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>图书名称</th>
+                    <th>在馆数量</th>
+                    <th>借出数量</th>
+                </tr>
+            {% for i in boollist %}
+                <tr>
+                    <td>{{ i.bookname }}</td>
+                    <td>{{ i.localbook }}</td>
+                    <td>{{ i.borrow }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% endif %}
+        </div>
+    </div>
+
+    <footer class="footer" style="position: absolute;
+                  bottom: 0;
+                  width: 100%;
+                  height: 50px;">
+    <div class="container">
+        <div class="text-center">
+        <small style="align-content: center">@made by@xxx 2018-10-30</small>
+        </div>
+        </div>
+    </footer>
+{% endblock %}

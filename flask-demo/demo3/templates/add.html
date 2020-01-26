@@ -1,0 +1,66 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+小窝的博客
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ url_for("static", filename="style.css") }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url_for("static", filename="component.css") }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for("static", filename="colorbox.css") }}" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<body>
+    <header>
+        <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            <div class="w3-logo">
+                <h1><a href="#">小窝的博客</a></h1>
+            </div>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a class="active" href="{{ url_for("work.index") }}">主页</a></li>
+                <li><a href="{{ url_for("work.add") }}">写博客</a></li>
+              </ul>
+            </div>
+        </nav>
+        <div class="clearfix"></div>
+        </div>
+    </header>
+
+    <div style="height: 20px;"></div>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <form method="post">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">标题</span>
+              <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
+            </div>
+            <div class="form-group">
+                <label for="name">内容</label>
+                <textarea name="blog" class="form-control" placeholder="在此输入内容" rows="10"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

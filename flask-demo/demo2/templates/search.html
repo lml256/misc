@@ -1,0 +1,156 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <title>成绩管理系统</title>
+{% endblock %}
+
+{% block content %}
+    <div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container-fluid container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">成绩查询</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{{ url_for('work.data') }}">首页</a>
+            </li>
+            <li class="active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查询
+              </a>
+            </li>
+            <li>
+              <a href="#">补考查询</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-tooggle" data-toggle="dropdown" role="button">User<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-round">
+                <li><a href="#">信息修改</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ url_for('work.index') }}">登出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </div>
+  <div style="padding-top: -60px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path class="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"></path>
+      <path class="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"></path>
+      <path class="elementor-shape-fill" d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"></path>
+    </svg>
+  </div>
+  <div>
+    <div class="container">
+      <div class="col-md-10" role="main">
+        <div class="bs-docs-section">
+            <h2 id="s1" class="page-header">查询</h2>
+            <div>
+                <div class="row">
+                    {% for message in get_flashed_messages() %}
+                        <div class="alert alert-danger" role="alert">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">学号</span>
+                      <input name="id" type="text" class="form-control" placeholder="输入学号进行查询" aria-describedby="basic-addon1">
+                    </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-1"><button type="submit" class="btn btn-primary">查询</button></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-8"></div>
+                </div>
+            </form>
+            </div>
+            <br><br>
+          <h2 id="s2" class="page-header">学生成绩</h2>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">成绩列表</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-condensed table-striped table-hover">
+                    <thead class="tab-header-area">
+                    <tr>
+                        <th>姓名</th>
+                        <th>学号</th>
+                        <th>语文</th>
+                        <th>数学</th>
+                        <th>英语</th>
+                        <th>物理</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    </tfoot>
+                    <tbody>
+                    {% for stu in student %}
+                         <tr>
+                         <td>{{ stu.name }}</td>
+                         <td>{{ stu.id }}</td>
+                         <th>{{ stu.chinese }}</th>
+                         <td>{{ stu.math }}</td>
+                         <td>{{ stu.english }}</td>
+                         <td>{{ stu.physical }}</td>
+                         <td>
+                             <form action="{{ url_for('work.delete', id=stu['id']) }}" method="post">
+                                <input class="btn btn-danger" type="submit" value="Delete">
+                            </form>
+                         </td>
+                         </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <!--示例结束-->
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col-md-2" role="complementary">
+        <nav class="affix">
+          <ul class="nav bs-docs-sidenav">
+            <li class="page-sidebar">
+              <a href="#s1">公告</a>
+            </li>
+            <li>
+              <a href="#s2">近期考试</a>
+            </li>
+            <li>
+              <a href="#s3">专题训练</a>
+            </li>
+            <li>
+              <a href="#top">回到顶部</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+{% endblock %}

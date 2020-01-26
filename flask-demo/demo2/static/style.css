@@ -1,0 +1,38 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.back-ground {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url("login-background.jpg");
+}
+
+.my-position-login {
+  position: absolute;
+  top: 200px;
+  right: 400px;
+  width: 300px;
+  height: 400px;
+}
+.mybtn {
+  border-radius: 15px;
+  padding-left: 110px;
+  padding-right: 110px;
+  text-align: center;
+}
+
+h1 {
+  text-shadow: 2px 2px 8px #fff;
+}
+
+.find-password {
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+}
